@@ -1,0 +1,16 @@
+1: 动态权限的核心工作流程：
+   checkSelfPermission检查是否已被授予——>requestPermissions申请权限——>自动回调onRequestPermissionsResult——shouldShowRequestPermissionRationale。
+   无论什么框架变出花来都离不开这个基本的流程。
+
+2: 一般ux提醒方式
+   如果在每个用到权限的地方去申请，有点繁琐，所以做法是直接在每个Activity界面显示前就把该界面所需的权限全部申请允许了，
+   再进入正常的流程。如果有权限未被允许，开发者可以在接口中自己处理，可以直接提示并退出，或者提示权限的作用后重新发起权限申请。
+
+3：系统api
+   ContextCompat.checkSelfPermission()： 检查权限是否已经授权
+   ActivityCompat.requestPermissions()：动态申请权限，并弹出对话框。
+   onRequestPermissionsResult()：在activity里面重写该方法该方法是权限申请之后的回调方法。
+   shouldShowRequestPermissionRationale() ：当应用首次申请权限时，如果用户点击拒绝，下次再申请权限，Android允许你提示用户，你为什么需要这个权限，
+   更好引导用户是否授权，其中在Android原生系统中：如果应用之前请求过此权限但用户拒绝了请求，此方法将返回true；
+   如果用户在过去拒绝了权限请求且在权限请求系统对话框中选择了 Don't ask again 选项将返回 false；
+   如果第一次申请权限也返回false；如果设备规范禁止应用具有该权限，此方法也会返回 false，返回false则不在显示提示对话框，返回true则会显示对话框。

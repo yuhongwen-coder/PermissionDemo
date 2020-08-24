@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PermissionLibActivity">
+
+    <ImageView
+        android:id="@+id/upload_pic"
+        android:layout_width="121dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginLeft="172dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_upload"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="288dp"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

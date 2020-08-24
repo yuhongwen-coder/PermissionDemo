@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <!--绑定Model数据2中形式，一中是导入该类型的，一种指定类型的全称，和java一样-->
+        <!--  方式一 -->
+<!--        <variable-->
+<!--            name="dataModel"-->
+<!--            type="com.application.databinging.model.DataModel"/>-->
+
+        <!--  方式二 -->
+        <!--<import type="www.zhang.com.databinding.User" />-->
+        <!--<variable-->
+        <!--name="user"-->
+        <!--type="User" />-->
+
+        <!--  方式三 -->
+        <!--绑定事件-->
+        <variable
+            name="event"
+            type="com.application.databinging.event.EventClickInterface" />
+        <variable
+            name="title1"
+            type="String" />
+
+        <variable
+            name="title2"
+            type="String" />
+        <variable
+            name="title3"
+            type="String" />
+        <variable
+            name="title4"
+            type="String" />
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DataBingingActivityDemo">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{event.click1}"
+            android:text="@{title1}"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{event::click2}"
+            android:text="@{title2}"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->event.cilck3(title4)}"
+            android:text="@{title3}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="你好 DataBinging，单纯的摆脱findViewById"-->
+<!--            android:textSize="30dp"-->
+<!--            android:id="@+id/main_textview"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--绑定基本数据类型及String的使用是通过   @{数据类型的对象}  通过对应数据类型的控制显示-->
+<!--        <Button-->
+<!--            android:id="@+id/main_tv2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:clickable="@{enabled}"-->
+<!--            android:text="@{content}"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/main_textview" />-->
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -2,7 +2,8 @@ package com.application.permissiondemo;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * 权限帮助类
